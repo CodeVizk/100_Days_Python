@@ -1,5 +1,6 @@
 # Making a Calculator using Loops, Dictionary, Recursion, Function.
-
+from ArtForCalculator import logo
+print(logo)
 
 def calculator():
   def add(n1,n2):
