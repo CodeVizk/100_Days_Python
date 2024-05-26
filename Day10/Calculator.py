@@ -1,8 +1,9 @@
 # Making a Calculator using Loops, Dictionary, Recursion, Function.
 from ArtForCalculator import logo
-print(logo)
+
 
 def calculator():
+  print(logo)
   def add(n1,n2):
     return n1+n2
 
@@ -20,7 +21,7 @@ def calculator():
     "*":multiply ,
     "/":divide
   }
-  num1=int(input("What's the first number? "))
+  num1=float(input("What's the first number? "))
   should_continue=True
   while should_continue:
     
