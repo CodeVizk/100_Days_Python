@@ -63,7 +63,7 @@ from random import choice
 
 
 def blackjack():
-  from art import logo
+  from BlackJackArt import logo
   print(logo)
   def deal_card():
     import random
