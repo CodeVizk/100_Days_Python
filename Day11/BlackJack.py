@@ -13,13 +13,6 @@ for _ in range(2):
   computer_cards.append(deal_card)
 
 game_over=False
-def calculate_score(cards):
-  """Takes a list of cards and return the score calculated from the cards"""
-  if sum(cards)==21 and len(cards)==2:
-     return 0
-  if 11 in cards and sum(cards)>21:
-    cards.append(1) 
-    cards.remove(11)
 
 
 user_score=calculate_score(user_cards)
