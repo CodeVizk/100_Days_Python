@@ -1,5 +1,5 @@
 #Q1 Solution -
-#  in line 5 replace range (1,20) to range(1,21) as range function
+#  In line 5 replace range (1,20) to range(1,21) as range function
 # omits the stop value thus we are not getting the answer at 20 
 
 # def my_function():
