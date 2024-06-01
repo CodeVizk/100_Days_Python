@@ -51,8 +51,16 @@
 
 
 # Q6 Solution -
-# 
-# 
+# For complex code we use a debugger like Thonny or Pythontutor to check each line of code and
+#  add breakpoint where the code is not working like it's intended to 
+# In this code items in b_list is not appending each item as it is not in the loop so indent the line into the loop 
+
+#  def mutate(a_list):
+#   b_list = []
+#   for item in a_list:
+#     new_item = item * 2
+#     b_list.append(new_item)
+#   print(b_list)
 
 
 
