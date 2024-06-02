@@ -28,8 +28,8 @@ def Higher_lower():
     
     print(f"Compare B: {compare_b['name']},a {compare_b['description']},from {compare_b['country']}")
     
-    print(compare_a['follower_count'])
-    print(compare_b['follower_count'])
+    # print(compare_a['follower_count'])
+    # print(compare_b['follower_count'])
     
     user_answer=input("Who has more following? Type 'A' or 'B' ")
     
