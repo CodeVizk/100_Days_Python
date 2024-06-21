@@ -11,8 +11,13 @@
 # To work with csv, even for a simple task we have to write lots of code
 # so for ease python developers use Pandas library
 
-
+#
 import pandas
 data = pandas.read_csv("weather_data.csv")
 print(data)
 print(data["temp"])
+
+# we can convert our data to many types in Pandas use documentation for reference
+data_dict = data.to_dict()
+print(type(data_dict))
+
