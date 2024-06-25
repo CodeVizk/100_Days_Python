@@ -32,12 +32,4 @@ while len(guessed_state) < 50:
         jim.write(state_data.state.item())
         guessed_state.append(user_answer)
 
-
-# missed states to go in csv
-# for i in range(50):
-#     if check_state[i] not in guessed_state:
-#         missed_state.append(check_state[i])
-
-
-
 screen.exitonclick()
