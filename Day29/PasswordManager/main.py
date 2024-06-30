@@ -4,8 +4,12 @@ from tkinter import messagebox
 import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
+
 def pass_gen():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+               'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
@@ -28,11 +32,11 @@ def save():
     user_email = username_entry.get()
     user_pass = password_entry.get()
 
-    if len(web_name) == 0 or len(user_pass) ==0 or len(user_email) == 0:
-        empty_fields = messagebox.showwarning(title="OOPS!", message="Please, don't leave empty fields!!")
+    if len(web_name) == 0 or len(user_pass) == 0 or len(user_email) == 0:
+        messagebox.showwarning(title="OOPS!", message="Please, don't leave empty fields!!")
     else:
-        is_ok = messagebox.askokcancel(title=web_name, message=f"These are the details entered.\nEmail: {user_email}"f"\nPassword: "
-                                                               f"{user_pass}\nIs it ok to save? ")
+        is_ok = messagebox.askokcancel(title=web_name, message=f"These are the details entered.\nEmail: {user_email}"
+                                                               f""f"\nPassword:{user_pass}\nIs it ok to save? ")
 
         if is_ok:
             with (open("data.txt", mode="a") as data):
