@@ -2,8 +2,8 @@
 
 try:
     file = open("text.txt")
-    a_dictonary = {"key": "value"}
-    print(a_dictonary["gerwe"])
+    a_dictionary = {"key": "value"}
+    print(a_dictionary["germ"])
 
 except FileNotFoundError:
     file = open("text.txt", "w")
