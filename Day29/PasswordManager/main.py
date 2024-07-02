@@ -2,6 +2,7 @@ from random import choice, randint, shuffle
 from tkinter import *
 from tkinter import messagebox
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -31,17 +32,32 @@ def save():
     web_name = website_entry.get()
     user_email = username_entry.get()
     user_pass = password_entry.get()
+    new_data = {
+        web_name: {
+                "email": user_email,
+                "password": user_pass
+        }
+    }
 
     if len(web_name) == 0 or len(user_pass) == 0 or len(user_email) == 0:
         messagebox.showwarning(title="OOPS!", message="Please, don't leave empty fields!!")
     else:
-        is_ok = messagebox.askokcancel(title=web_name, message=f"These are the details entered.\nEmail: {user_email}"
-                                                               f""f"\nPassword:{user_pass}\nIs it ok to save? ")
+        try:
+            with open("data.json", "r") as save_data:
+                # Reading old data
+                data = json.load(save_data)
 
-        if is_ok:
-            with (open("data.txt", mode="a") as data):
-                data.write(f"{web_name} | {user_email} | {user_pass}\n")
+        except FileNotFoundError:
+            with open("data.json", "w") as save_data:
+                json.dump(new_data, save_data, indent=4)
+        else:
+            # Updating old data with new data
+            data.update(new_data)
 
+            with open("data.json", "w") as save_data:
+                # Saving updated data
+                json.dump(data, save_data, indent=4)
+        finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
@@ -83,7 +99,7 @@ website_entry.focus()
 
 username_entry = Entry(width=36)
 username_entry.grid(column=1, row=2, columnspan=2, sticky="WE", pady=4)
-username_entry.insert(0, "vivek223singh@gmail.com")
+username_entry.insert(0, "CodeVizk@gmail.com")
 
 password_entry = Entry(width=21)
 password_entry.grid(column=1, row=3, sticky="EW", pady=4)
