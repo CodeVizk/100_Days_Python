@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import pyperclip
 import json
-
+import pandas
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
@@ -28,6 +28,28 @@ def pass_gen():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
+def search_password():
+    web_name = website_entry.get()
+    if len(web_name) == 0:
+        messagebox.showwarning(title="OOPS!", message="Please, don't leave empty fields!!")
+    else:
+        try:
+            with open("data.json", "r") as search_file:
+                data = json.load(search_file)
+
+        except FileNotFoundError:
+            messagebox.showinfo("Error", "No data file found")
+        else:
+            if web_name in data:
+                user_email = data[web_name]["email"]
+                user_pass = data[web_name]["password"]
+                messagebox.showinfo(web_name, f"Email: {user_email}\nPassword: {user_pass}")
+            else:
+                messagebox.showinfo("Not Found", "The searched website is not found")
+        finally:
+            website_entry.delete(0, END)
+
+
 def save():
     web_name = website_entry.get()
     user_email = username_entry.get()
@@ -39,7 +61,7 @@ def save():
         }
     }
 
-    if len(web_name) == 0 or len(user_pass) == 0 or len(user_email) == 0:
+    if len(web_name) == 0 or len(user_pass) == 0:
         messagebox.showwarning(title="OOPS!", message="Please, don't leave empty fields!!")
     else:
         try:
@@ -86,22 +108,25 @@ password_label.grid(column=0, row=3)
 
 
 # Buttons
-generate_pass = Button(text="Generate Password", font=("aerial", 7), command=pass_gen)
-generate_pass.grid(column=2, row=3, padx=(4, 0), ipady=0, sticky="EW")
+generate_pass = Button(text="Generate Password", font=("aerial", 7), pady=-1, command=pass_gen)
+generate_pass.grid(column=2, row=3, padx=(4, 0), sticky="EW")
 
 add_button = Button(text="Add", width=35, font=("aerial", 8), command=save)
 add_button.grid(column=1, columnspan=2, row=4, sticky="WE", pady=(4, 0))
 
+search_button = Button(text="Search", font=("aerial", 7), pady=-1, command=search_password)
+search_button.grid(column=2, row=1, sticky="we", padx=(5, 0))
+
 # Entries
 website_entry = Entry()
-website_entry.grid(column=1, row=1, columnspan=2, sticky="WE", pady=4)
+website_entry.grid(column=1, row=1, sticky="WE", pady=4)
 website_entry.focus()
 
-username_entry = Entry(width=36)
+username_entry = Entry()
 username_entry.grid(column=1, row=2, columnspan=2, sticky="WE", pady=4)
 username_entry.insert(0, "CodeVizk@gmail.com")
 
-password_entry = Entry(width=21)
+password_entry = Entry()
 password_entry.grid(column=1, row=3, sticky="EW", pady=4)
 
 mainloop()
