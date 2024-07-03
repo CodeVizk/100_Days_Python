@@ -11,16 +11,20 @@ right_img = PhotoImage(file="images/right.png")
 wrong_img = PhotoImage(file="images/wrong.png")
 
 right_button = Button(image=right_img, highlightthickness=0)
-right_button.grid(column=0, row=3)
+right_button.grid(column=0, row=1)
 
 wrong_button = Button(image=wrong_img, highlightthickness=0)
-wrong_button.grid(column=1, row=3)
+wrong_button.grid(column=1, row=1)
 
 flash_card_front = PhotoImage(file="images/card_front.png")
-flash_canvas = Canvas(width=300, height=300)
-flash_canvas.create_image(150, 150, image=flash_card_front)
-flash_canvas.grid(column=0, row=1, columnspan=2)
+flash_canvas = Canvas(highlightthickness=0, bg="white")
+flash_canvas.create_image(800, 526, image=flash_card_front)
+flash_canvas.grid(column=0, row=0, columnspan=2)
 
+
+language_label = Label(text="French", font=("Ariel", 20, "italic"))
+language_label.place(x=400, y=250)
+language_label.grid(column=0, row=0, columnspan=2)
 
 
 
