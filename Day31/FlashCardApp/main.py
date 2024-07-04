@@ -46,25 +46,28 @@ window.config(bg=BACKGROUND_COLOR, padx=50, pady=50)
 flip_timer = window.after(3000, eng_words)
 
 
-
 right_img = PhotoImage(file="images/right.png")
 wrong_img = PhotoImage(file="images/wrong.png")
+
 
 right_button = Button(image=right_img, highlightthickness=0, command=correct_ans)
 right_button.grid(column=1, row=1)
 
+
 wrong_button = Button(image=wrong_img, highlightthickness=0, command=french_words)
 wrong_button.grid(column=0, row=1)
+
 
 flash_card_back = PhotoImage(file="images/card_back.png")
 flash_card_front = PhotoImage(file="images/card_front.png")
 flash_canvas = Canvas(highlightthickness=0, bg=BACKGROUND_COLOR, width=800, height=526)
-
 bg_img = flash_canvas.create_image(400, 263, image=flash_card_front)
+
 
 card_title = flash_canvas.create_text(400, 150, text="", font=("Ariel", 40, "italic"))
 card_word = flash_canvas.create_text(400, 263, text=f"", font=("Ariel", 60, "bold"))
 flash_canvas.grid(column=0, row=0, columnspan=2)
+
 
 french_words()
 
