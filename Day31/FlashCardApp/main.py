@@ -15,8 +15,6 @@ def french_words():
     f_words = random.choice(data_list)
     flash_canvas.itemconfigure(words,  text=f"{f_words["French"]}", font=("Ariel", 60, "bold"))
 
-
-
 window = Tk()
 window.title("Flash Card ")
 window.config(bg=BACKGROUND_COLOR, padx=50, pady=50)
