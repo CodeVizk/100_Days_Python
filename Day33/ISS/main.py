@@ -39,8 +39,8 @@ def is_night():
         return True
 
 
-user = "codevizk@gmail.com"
-password = "vydq ennv bbay ydau"
+user = "your mail@gmai.com"
+password = "your password"
 if is_iss_overhead() and is_night():
     time.sleep(60)
     connection = smtplib.SMTP("smtp.gmail.com")
@@ -48,7 +48,7 @@ if is_iss_overhead() and is_night():
     connection.login(user=user, password=password)
     connection.sendmail(
         from_addr=user,
-        to_addrs="vivek223singh@gmail.com",
+        to_addrs="RECEIVER-EMAIL-@gmail.com",
         msg="Subject:Look up!\n\nThe ISS is above you in the sky."
     )
 
