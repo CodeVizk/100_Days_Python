@@ -1,7 +1,7 @@
 import requests
 import smtplib
 
-USER = "YOUR EMAIL@gmail.com"
+USER = "YOUR EMAIL @gmail.com"
 PASS = "YOUR PASSWORD"
 MY_LAT = 28.631662
 MY_LONG = 77.194120
@@ -28,6 +28,6 @@ if will_rain:
     connect = smtplib.SMTP("smtp.gmail.com")
     connect.starttls()
     connect.login(user=USER, password=PASS)
-    connect.sendmail(from_addr=USER, to_addrs="RECEIVER@gmail.com", msg="Subject: Weather update\n\nIt's going to rain "
+    connect.sendmail(from_addr=USER, to_addrs="RECEIVER EMAIL", msg="Subject: Weather update\n\nIt's going to rain "
                                                                         "today get an umbrella")
     connect.close()
