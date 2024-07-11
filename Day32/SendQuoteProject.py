@@ -12,12 +12,12 @@ if now.weekday() == 5:
     rand_quote = random.choice(quote)
     print(rand_quote)
 
-    user = "codevizk@gmail.com"
-    password = "vydq ennv bbay ydau"
+    user = "YOUR EMAIL @gmail.com"
+    password = "YOUR PASSWORD"
 
     with smtplib.SMTP("smtp.gmail.com") as connect:
         connect.starttls()
         connect.login(user=user, password=password)
         connect.sendmail(from_addr=user,
-                         to_addrs="vivek223singh@gmail.com",
+                         to_addrs="RECEIVER @gmail.com",
                          msg=f"Subject: Motivational quote for you\n\n{rand_quote}")
