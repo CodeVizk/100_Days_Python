@@ -1,9 +1,12 @@
 import requests
+import smtplib
 
+USER = "YOUR EMAIL@gmail.com"
+PASS = "YOUR PASSWORD"
 MY_LAT = 28.631662
 MY_LONG = 77.194120
 endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-api_key = "f500d64e87b7c125b5eae2a366a49cfd"
+api_key = "YOUR KEY"
 parameter = {
     "lat": MY_LAT,
     "lon": MY_LONG,
@@ -15,8 +18,16 @@ parameter = {
 response = requests.get(endpoint, params=parameter)
 response.raise_for_status()
 weather = response.json()
-# day_weather = response.json()["list"][0]["weather"][0]["id"]
+will_rain = False
 for hour in weather["list"]:
-    chk = hour["weather"][0]["id"]
-    if chk < 700:
-        print("bring an umbrella")
+    condition = hour["weather"][0]["id"]
+    if int(condition) < 700:
+        will_rain = True
+
+if will_rain:
+    connect = smtplib.SMTP("smtp.gmail.com")
+    connect.starttls()
+    connect.login(user=USER, password=PASS)
+    connect.sendmail(from_addr=USER, to_addrs="RECEIVER@gmail.com", msg="Subject: Weather update\n\nIt's going to rain "
+                                                                        "today get an umbrella")
+    connect.close()
