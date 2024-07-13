@@ -2,10 +2,6 @@ import requests
 import datetime as dt
 import os
 
-# app_id = "bdb85b46"
-# api_key = "75ef9e7bf24404c4053788353cf5c9cc"
-# token = "vytf654ytdre754xf"
-# sheet_endpoint = "https://api.sheety.co/e1b9d24ce51228c845ea09b74ba22787/myWorkout/workouts"
 
 EXERCISE_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
